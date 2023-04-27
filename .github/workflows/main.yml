@@ -1,0 +1,38 @@
+name: e2e-tests
+on: [worfklow_dispatch]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Cypress run chrome
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start
+          browser: chrome
+
+      - name: Cypress run edge
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start
+          browser: edge
+
+      - name: Cypress run electron
+        uses: cypress-io/github-action@v5
+        with:
+          start: npm start
+          browser: electron
+      
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos

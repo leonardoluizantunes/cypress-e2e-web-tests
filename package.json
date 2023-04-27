@@ -1,5 +1,15 @@
 {
   "devDependencies": {
     "cypress": "^12.11.0"
+  },
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "cy:chrome-headless": "cypress run --headless --browser chrome",
+    "cy:edge-headless": "cypress run --headless --browser edge",
+    "cy:electron-headless": "cypress run --headless --browser electron",
+    "cy:chrome-headed": "cypress run --headed --browser chrome",
+    "cy:edge-headed": "cypress run --headed --browser edge",
+    "cy:electron-headed": "cypress run --headed --browser electron",
   }
 }
