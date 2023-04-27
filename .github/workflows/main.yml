@@ -1,6 +1,5 @@
 name: e2e-tests
-on: 
-  push:
+on: push
 
 jobs:
   cypress-run:
