@@ -8,23 +8,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Cypress run chrome
+      - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
           start: npm start
-          browser: chrome
-
-      - name: Cypress run edge
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm start
-          browser: edge
-
-      - name: Cypress run electron
-        uses: cypress-io/github-action@v5
-        with:
-          start: npm start
-          browser: electron
       
       - uses: actions/upload-artifact@v3
         if: failure()
